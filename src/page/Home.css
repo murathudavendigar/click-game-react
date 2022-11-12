@@ -1,0 +1,13 @@
+.main {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle-div {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  border: 2px solid black;
+}
