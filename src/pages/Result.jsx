@@ -4,7 +4,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 const Result = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const clickCount = location?.state;
+  const { clickCount, userSelectTime } = location?.state;
+  const point = clickCount / userSelectTime;
   return (
     <div
       style={{
@@ -12,8 +13,8 @@ const Result = () => {
         justifyContent: "center",
         alignItems: "center",
       }}>
-      <h1>Your Score is {clickCount}</h1>
-      <button onClick={() => navigate("/")}>Try again</button>
+      <h1>Your Score is :{point}</h1>
+      <button onClick={() => navigate("/home")}>Try again</button>
     </div>
   );
 };
