@@ -34,7 +34,7 @@ const Home = () => {
       return () => clearInterval(interval);
     }
   }, [seconds]);
-
+  console.log("interval dışı. saniye : " + seconds);
   useEffect(() => {
     if (starter) {
       setSeconds(userSelectTime);
@@ -44,9 +44,11 @@ const Home = () => {
 
   return (
     <>
-      <div className="main">
+      <div className="container bg-[#513252] text-white h-screen w-screen flex justify-center items-center gap-4">
         <div>
-          <select onChange={(e) => setUserSelectTime(e.target.value)}>
+          <select
+            onChange={(e) => setUserSelectTime(e.target.value)}
+            className="bg-[#FFC18E]  hover:bg-[#FFC185] text-[#7A4069] focus:[#CA4E79] focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center  cursor-pointer">
             <option value={5}>5 seconds</option>
             <option value={10}>10 seconds</option>
             <option value={20}>20 seconds</option>
@@ -61,11 +63,12 @@ const Home = () => {
         <h1>{seconds}</h1>
         <button onClick={() => setStarter(true)}>Start Game</button>
         <button
-          className="circle-div"
+          className="w-40 h-40 border-2 rounded-[50%] border-[#CA4E79] cursor-pointer active::border-white"
           onClick={() => setClickCount(clickCount + 1)}
           disabled={!starter}>
           Click
         </button>
+        <div onClick={() => navigate("/topscores")}>Go Top Scores</div>
       </div>
     </>
   );

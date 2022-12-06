@@ -14,10 +14,10 @@ const useDataCall = () => {
     const newDataRef = push(dataRef);
 
     set(newDataRef, {
-      userName: infoData.username,
-      userSetTime: infoData.userSetTime,
-      userClickCount: infoData.userClickCount,
-      userPoint: infoData.userPoint,
+      // userName: infoData.username,
+      // userSetTime: infoData.userSetTime,
+      // userClickCount: infoData.userClickCount,
+      userPoint: infoData,
     });
   };
 
