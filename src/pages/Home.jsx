@@ -86,7 +86,11 @@ const Home = () => {
               className="w-40 h-40 lg:w-60 lg:h-60 border-2 rounded-[50%] border-[#CA4E79] cursor-pointer active::border-white m-2"
               onClick={() => setClickCount(clickCount + 1)}
               disabled={!clickStarter}>
-              {!clickStarter && starter ? loadingTime : "Click"}
+              {!clickStarter && starter
+                ? loadingTime
+                : clickCount > 0 && !starter
+                ? "Game Over"
+                : "Click"}
             </button>
           </div>
           {starter ? (
