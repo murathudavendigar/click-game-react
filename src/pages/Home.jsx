@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { SlSocialLinkedin, SlSocialGithub } from "react-icons/sl";
 import { GiStarsStack } from "react-icons/gi";
@@ -12,7 +11,6 @@ const Home = () => {
   const [userSelectTime, setUserSelectTime] = useState(1);
   const [loadingTime, setLoadingTime] = useState(3);
   const navigate = useNavigate();
-  const { currentUser } = useSelector((state) => state.userName);
 
   useEffect(() => {
     if (starter) {

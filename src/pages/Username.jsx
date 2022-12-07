@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { enterUserName } from "../features/userNameSlice";
 
