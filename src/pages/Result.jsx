@@ -9,7 +9,7 @@ const Result = () => {
   const { addData } = useDataCall();
   const location = useLocation();
   const { clickCount, userSelectTime } = location?.state;
-  const point = clickCount / userSelectTime;
+  const point = (clickCount / userSelectTime).toFixed(2);
   const info = {
     userName: currentUser?.payload || "guest",
     userSetTime: userSelectTime,
