@@ -10,8 +10,8 @@ const userNameSlice = createSlice({
   },
 
   reducers: {
-    enterUserName: (state, { payload }) => {
-      state.currentUser = payload?.username;
+    enterUserName: (state, payload) => {
+      state.currentUser = payload;
     },
     fetchStart: (state) => {
       state.loading = true;
