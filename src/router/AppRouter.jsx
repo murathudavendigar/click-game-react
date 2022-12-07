@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Navbar from "../components/Navbar";
 import Home from "../pages/Home";
 import Result from "../pages/Result";
 import TopScores from "../pages/TopScores";
@@ -8,6 +9,7 @@ import Username from "../pages/Username";
 const AppRouter = () => {
   return (
     <BrowserRouter>
+      <Navbar />
       <Routes>
         <Route path="/" index element={<Username />} />
         <Route path="/home" element={<Home />} />
