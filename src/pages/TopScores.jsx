@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import useDataCall from "../hooks/useDataCall";
+import { MdArrowBackIos } from "react-icons/md";
 
 const TopScores = () => {
   const navigate = useNavigate();
   const { fetchData, dataList } = useDataCall();
   const [sortedData, setSortedData] = useState(dataList);
+  const [showLogo, setShowLogo] = useState(false);
 
   useEffect(() => {
     handleSort();
@@ -24,11 +26,14 @@ const TopScores = () => {
 
   return (
     <div className=" text-white h-full text-center p-4">
-      <h1
-        className="text-start cursor-pointer hover:text-red-600 transition-all"
+      <span
+        className="text-start cursor-pointer hover:text-red-600 transition-all text-2xl flex items-center w-1/2 lg:w-1/6 "
+        onMouseOver={() => setShowLogo(true)}
+        onMouseLeave={() => setShowLogo(false)}
         onClick={() => navigate(-1)}>
-        Go Back
-      </h1>
+        {showLogo && <MdArrowBackIos />}
+        <span>Go Back</span>
+      </span>
 
       <div className="overflow-x-auto text-center my-4">
         <h1 className=" text-gray-700 uppercase bg-gray-200 text-center p-3 border-b border-black  w-full">

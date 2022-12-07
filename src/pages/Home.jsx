@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { SlSocialLinkedin, SlSocialGithub } from "react-icons/sl";
+import { GiStarsStack } from "react-icons/gi";
 
 const Home = () => {
   const [clickCount, setClickCount] = useState(0);
@@ -12,13 +14,6 @@ const Home = () => {
   const navigate = useNavigate();
   const { currentUser } = useSelector((state) => state.userName);
 
-  // const initialValues = {
-  //   userName: ,
-  //   userSetTime: infoData.userSetTime,
-  //   userClickCount: infoData.userClickCount,
-  //   userPoint: infoData.userPoint,
-  // };
-
   useEffect(() => {
     if (starter) {
       const interval = setInterval(() => {
@@ -26,9 +21,7 @@ const Home = () => {
           setSeconds(seconds - 1);
         } else if (seconds > 1) {
           setSeconds(seconds - 1);
-          console.log("interval içi. saniye : " + seconds);
         } else {
-          console.log("time is up");
           setStarter(false);
           setClickStarter(false);
           clearInterval(interval);
@@ -40,7 +33,6 @@ const Home = () => {
       return () => clearInterval(interval);
     }
   }, [seconds]);
-  console.log("interval dışı. saniye : " + seconds);
 
   useEffect(() => {
     if (starter) {
@@ -59,7 +51,22 @@ const Home = () => {
 
   return (
     <>
-      <div className="text-white h-screen w-screen flex flex-col justify-center items-center gap-4">
+      <div className="flex justify-center items-center text-4xl gap-2 mt-6 text-white">
+        <SlSocialLinkedin
+          className="cursor-pointer hover:text-blue-600 transition-colors"
+          onClick={(e) =>
+            (window.location.href =
+              "https://www.linkedin.com/in/murathudavendigaroncu/")
+          }
+        />
+        <SlSocialGithub
+          className="cursor-pointer hover:text-[#333] transition-colors"
+          onClick={(e) =>
+            (window.location.href = "https://github.com/murathudavendigar")
+          }
+        />
+      </div>
+      <div className="text-white mt-10 w-full flex flex-col justify-center items-center gap-4">
         <div className="flex justify-center items-center flex-col lg:flex-row gap-4">
           <div>
             <select
@@ -109,7 +116,11 @@ const Home = () => {
           </div>
         </div>
         <div className="block">
-          <div onClick={() => navigate("/topscores")}>Go Top Scores</div>
+          <div
+            onClick={() => navigate("/topscores")}
+            className="flex items-center text-xl gap-3 transition-all border-2 border-[#CA4E79] p-2 rounded-lg cursor-pointer hover:text-[#FFC18E] hover:bg-[#5c395e]">
+            <GiStarsStack /> <span>Go Top Scores</span>
+          </div>
         </div>
       </div>
     </>
