@@ -1,29 +1,35 @@
 import { useState } from "react";
 import { getDatabase, ref, push, onValue, set } from "firebase/database";
 import myFirebaseApp from "../firebase/database";
+import { useDispatch } from "react-redux";
+import { fetchStart, fetchSuccess } from "../features/userNameSlice";
 
 const useDataCall = () => {
   const [dataList, setDataList] = useState();
+  const dispatch = useDispatch();
 
   //! ------------------------- ADD DATA ------------
 
   const addData = (infoData) => {
+    dispatch(fetchStart());
     const db = getDatabase(myFirebaseApp);
 
     const dataRef = ref(db, "points/");
     const newDataRef = push(dataRef);
 
     set(newDataRef, {
-      // userName: infoData.username,
-      // userSetTime: infoData.userSetTime,
-      // userClickCount: infoData.userClickCount,
-      userPoint: infoData,
+      userName: infoData.userName,
+      userSetTime: infoData.userSetTime,
+      userClickCount: infoData.userClickCount,
+      userPoint: infoData.userPoint,
     });
+    dispatch(fetchSuccess());
   };
 
   //! ------------------------- GET DATA ------------
 
   const fetchData = () => {
+    dispatch(fetchStart());
     const db = getDatabase(myFirebaseApp);
     const dataRef = ref(db, "points/");
 
@@ -38,6 +44,7 @@ const useDataCall = () => {
     });
   };
 
+  dispatch(fetchSuccess());
   return { addData, fetchData, dataList };
 };
 
