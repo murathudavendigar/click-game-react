@@ -54,19 +54,22 @@ const TopScores = () => {
               </th>
             </tr>
           </thead>
-          {sortedData?.map((item, index) => (
-            <tbody key={index}>
-              <tr className="bg-gray-50 border-b ">
-                <th
-                  scope="row"
-                  className="py-4 px-5 font-medium text-gray-900 whitespace-nowrap border-r">
-                  {index + 1}
-                </th>
-                <td className="py-4 px-5 border-r">{item?.userName}</td>
-                <td className="py-4 px-5">{item?.userPoint}</td>
-              </tr>
-            </tbody>
-          ))}
+          {sortedData?.map(
+            (item, index) =>
+              index < 150 && (
+                <tbody key={index}>
+                  <tr className="bg-gray-50 border-b ">
+                    <th
+                      scope="row"
+                      className="py-4 px-5 font-medium text-gray-900 whitespace-nowrap border-r">
+                      {index + 1}
+                    </th>
+                    <td className="py-4 px-5 border-r">{item?.userName}</td>
+                    <td className="py-4 px-5">{item?.userPoint}</td>
+                  </tr>
+                </tbody>
+              )
+          )}
         </table>
       </div>
     </div>

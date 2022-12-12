@@ -121,7 +121,7 @@ const Home = () => {
           <div
             onClick={() => navigate("/topscores")}
             className="flex items-center text-xl gap-3 transition-all border-2 border-[#CA4E79] p-2 rounded-lg cursor-pointer hover:text-[#FFC18E] hover:bg-[#5c395e]">
-            <GiStarsStack /> <span>Go Top Scores</span>
+            <GiStarsStack /> <span>Top Scores</span>
           </div>
         </div>
       </div>
